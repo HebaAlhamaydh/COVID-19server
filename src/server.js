@@ -7,8 +7,8 @@ const cors = require("cors");
 
 const notFoundHandler = require("./error-handlers/404");
 const errorHandler = require("./error-handlers/500");
-const signUp=require("./routes/signup")
-const signIn=require("./routes/signin")
+const signup=require("./routes/signup")
+const signin=require("./routes/signin")
 const secretstuff=require('./routes/secretStuff')
 const v1Routes=require("./routes/v1");
 const v2Router=require("./routes/v2");
@@ -23,8 +23,8 @@ app.use(express.json());
 app.use(cors());
 
 // Routes
-app.use(signUp);
-app.use(signIn);
+app.use(signup);
+app.use(signin);
 app.use(secretstuff)
 app.use('/v2',v2Router);
 app.use('/v1',v1Routes);
