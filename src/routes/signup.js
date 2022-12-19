@@ -12,9 +12,9 @@ const { Users } = require('../models/index');
 
 signUpRouter.post('/signup',async(req,res)=>{
   try {
-    const { role,email, username, city, password } =req.body
+    const { role,email, username, password } =req.body
     const passwordhash = await bcrypt.hash(password, 10);
-      const record = await Users.create({ username: username, password: passwordhash, role: role, email: email, city: city});
+      const record = await Users.create({ username: username, password: passwordhash, role: role, email: email});
       res.status(201).json(record);
     } catch (e) { res.status(500).send('Error Creating User'); }
 
