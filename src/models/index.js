@@ -25,11 +25,13 @@ let sequelizeOptions =
 // we are going to use this to connect to Postgres
 let sequelize = new Sequelize(POSTGRES_URI, sequelizeOptions);
 
-
 const recordsTable = recordsModel (sequelize, DataTypes);
-
+const userTable = userModel(sequelize, DataTypes);
 //  const usersCollection = new Collection(usersTable);
 
+//relations database
+userTable.hasMany(recordsTable); //one user has many record
+recordsTable.belongsTo(userTable); 
 
 module.exports = {
     sequelize: sequelize,
