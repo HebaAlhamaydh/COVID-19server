@@ -5,7 +5,7 @@ const recordsModel = (sequelize, DataTypes) => sequelize.define('records', {
   totalDeaths: { type: DataTypes.INTEGER },
   totalRecovered: { type: DataTypes.INTEGER },
   date:  { type: DataTypes.DATE },
-  userID: {type: DataTypes.INTEGER,},
+
 },{ timestamps: false });
 
   
